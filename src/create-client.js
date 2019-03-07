@@ -41,8 +41,8 @@ class CreateClient extends Component{
   render(){
     return(
       <div>
-      <input name='nombre' onChange={this.handleChange} value={this.state.nombre} style={{margin: '5px', 'margin-top': '25px'}} placeholder='Ingrese Nombre'></input>
-      <input name='direccion' onChange={this.handleChange} value={this.state.direccion} style={{margin: '5px', 'margin-top': '25px'}} placeholder='Ingrese Direccion'></input>
+      <input name='nombre' onChange={this.handleChange} value={this.state.nombre} style={{margin: '10px'}} placeholder='Ingrese Nombre'></input>
+      <input name='direccion' onChange={this.handleChange} value={this.state.direccion} style={{margin: '10px'}} placeholder='Ingrese Direccion'></input>
       <button onClick={this.handleClick}>Crear Cliente</button>
       </div>
     )

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Client from './client'
 import CreateClient from './create-client'
-import  styles from "./App.css"
-
 
 // const apiUrl = 'http://localhost:3000/'
 const apiUrl = 'https://mankos-back-end.herokuapp.com/'
@@ -16,14 +14,14 @@ class Register extends Component {
       direccion: '',
       nombre:'',
       numero_visita:'',
-      found: null
+      check: null
     }
   }
 
   handleChange =(e)=>{
     this.setState({
       telefono: e.target.value,
-      found: null
+      check: null
     })
   }
 
@@ -47,7 +45,7 @@ class Register extends Component {
       }).then(r=> r.json())
       .then(client=>{
         this.setState({
-          found: true,
+          check: true,
           numero_visita: client.numero_visita
         })
       })})
@@ -67,13 +65,13 @@ class Register extends Component {
             direccion: client.direccion,
             numero_visita: client.numero_visita,
             id: client.id,
-            found: true
+            check: true
           })
         }
       })
       if(!check){
         this.setState({
-          found: false
+          check: false
         })
       }
     })
@@ -85,7 +83,7 @@ class Register extends Component {
       direccion: client.direccion,
       telefono: client.telefono,
       numero_visita: client.numero_visita,
-      found: true
+      check: true
     })
   }
 
@@ -100,8 +98,8 @@ class Register extends Component {
           <input style={{margin: '5px'}} name='telephone' onChange={this.handleChange} value={this.state.telefono} placeholder='Numero de telefono'></input>
           <button type='submit'>Buscar</button>
         </form>
-        {this.state.found ? <Client handleCompra={this.handleCompra} client={this.state}/> :
-         (this.state.found === false ? <CreateClient newClient={this.newClient} telefono={this.state.telefono}/> : null)}
+        {this.state.check ? <Client handleCompra={this.handleCompra} client={this.state}/> :
+         (this.state.check === false ? <CreateClient newClient={this.newClient} telefono={this.state.telefono}/> : null)}
       </div>
     )
   }
