@@ -32,7 +32,8 @@ class CreateClient extends Component{
         telefono: this.props.telefono,
         numero_visita: 1
       })
-    }).then(r=> r.json())
+    })
+    .then(r=>r.json())
     .then(client=>{
       this.props.newClient(client)
     })
