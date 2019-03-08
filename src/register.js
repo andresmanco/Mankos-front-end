@@ -55,27 +55,27 @@ class Register extends Component {
   handleSubmit = (e)=>{
     e.preventDefault()
     fetch(`${apiUrl}clients`)
-    .then(r=>r.text())
+    .then(r=>r.json())
     .then(json => {
       console.log(json)
-      // let check = false
-      // json.forEach(client=>{
-      //   if(client.telefono == this.state.telefono){
-      //     check = true
-      //     this.setState({
-      //       nombre: client.nombre,
-      //       direccion: client.direccion,
-      //       numero_visita: client.numero_visita,
-      //       id: client.id,
-      //       check: true
-      //     })
-      //   }
-      // })
-      // if(!check){
-      //   this.setState({
-      //     check: false
-      //   })
-      // }
+      let check = false
+      json.forEach(client=>{
+        if(client.telefono == this.state.telefono){
+          check = true
+          this.setState({
+            nombre: client.nombre,
+            direccion: client.direccion,
+            numero_visita: client.numero_visita,
+            id: client.id,
+            check: true
+          })
+        }
+      })
+      if(!check){
+        this.setState({
+          check: false
+        })
+      }
     })
   }
 
