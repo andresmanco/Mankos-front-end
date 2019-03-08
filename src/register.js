@@ -60,6 +60,7 @@ class Register extends Component {
       console.log(json)
       let check = false
       json.forEach(client=>{
+        console.log(client.telefono);
         if(client.telefono == this.state.telefono){
           check = true
           this.setState({
