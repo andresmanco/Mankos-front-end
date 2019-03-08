@@ -55,7 +55,7 @@ class Register extends Component {
   handleSubmit = (e)=>{
     e.preventDefault()
     fetch(`${apiUrl}clients`)
-    .then(r=>r.json())
+    .then(r=>r.text())
     .then(json => {
       let check = false
       json.forEach(client=>{
