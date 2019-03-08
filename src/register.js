@@ -7,7 +7,7 @@ const apiUrl = 'https://mankos-back-end.herokuapp.com/'
 
 class Register extends Component {
   constructor(){
-    super();
+    super()
     this.state={
       id: '',
       telefono: '',
